@@ -47,6 +47,24 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupEvents(){
 
+        btnAutoBUY.setOnClickListener {
+
+            // 처음 눌리면 -> 반복 구매 시작 -> 1천만원 사용할때까지 반복
+            
+            // 단순반복 -> 반복속도가 너무빨라서, UI가 멈춘것처럼 보인다
+            while(true){
+                buyLotto()
+
+                if (mUsedMoney>=10000000){
+                    break
+                }
+            }
+            
+            // 반복 구매중에 눌리면 -> 반복 종료
+
+        }
+
+
         btnBuyLotto.setOnClickListener {
 
             buyLotto()
