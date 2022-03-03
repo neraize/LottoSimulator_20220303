@@ -3,6 +3,7 @@ package com.nepplus.lottosimulator_20220303
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -102,6 +103,33 @@ class MainActivity : AppCompatActivity() {
         // 내번호 목록 vs 당첨 번호 목록중, 같은 숫자가 몇개?
         var correctCount =0
 
+        // 내 번호를 하나씩 조회
+        for(myNum in myNumbers){
+
+            // 당첨번호를 맞췄는가 ? => 당첨번호 목록에 내번호가 들어있나?
+            if(mWinNumberList.contains(myNum)){
+                correctCount++
+            }
+        }
+
+        // 맞춘 갯수에 따른 등수판정
+        when(correctCount){
+            6 -> {
+                Toast.makeText(this, "1등입니다", Toast.LENGTH_SHORT).show()
+            }
+            5 -> {
+                Toast.makeText(this, "임시 3등입니다", Toast.LENGTH_SHORT).show()
+            }
+            4 -> {
+                Toast.makeText(this, "4등입니다", Toast.LENGTH_SHORT).show()
+            }
+            3 -> {
+                Toast.makeText(this, "5등입니다", Toast.LENGTH_SHORT).show()
+            }
+            else->{
+                Toast.makeText(this, "낙첨입니다", Toast.LENGTH_SHORT).show()
+            }
+        }
 
     }
 
