@@ -6,6 +6,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import java.text.NumberFormat
 
 class MainActivity : AppCompatActivity() {
 
@@ -150,6 +151,10 @@ class MainActivity : AppCompatActivity() {
 //                Toast.makeText(this, "낙첨입니다", Toast.LENGTH_SHORT).show()
             }
         }
+
+        // 사용 금액/ 당첨금액을 텍스트뷰에 각각 반영
+        txtUsedMoney.text = "${NumberFormat.getInstance().format(mUsedMoney) }원"
+        txtEarnMoney.text = "${NumberFormat.getInstance().format(mEarnMoney) }원"
 
     }
 
